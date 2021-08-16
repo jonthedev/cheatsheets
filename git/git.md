@@ -5,7 +5,7 @@
 ## Show git config list
 
 ```terminal
-git config --list
+$ git config --list
 ```
 
 ## Git config user name
@@ -35,7 +35,7 @@ $ git config --global core.editor "code --wait"
 ## Revert Back To GNU nano (or default)
 
 ```terminal
-git config --global --unset core.editor
+$ git config --global --unset core.editor
 ```
 
 ---
@@ -58,12 +58,32 @@ $ git add .
 $ git rm --cached <file-name>
 ```
 
+## Git Stash
+
+```terminal
+$ git stash
+```
+
+## Check Stashed Files
+
+```terminal
+$ git stash list
+```
+
+---
+
 ## Create new branch
 
 **NOTE**: A master/main branch is only created after **first** commit
 
 ```terminal
 $ git branch <new-branch-name>
+```
+
+## List all available branches
+
+```terminal
+$ git branch -a
 ```
 
 ## Create branch -> checkout
@@ -84,10 +104,18 @@ $ git checkout -b <new-branch-name> origin/<remote-branch>
 $ git branch -m <name>
 ```
 
+## Delete branch
+
+```terminal
+$ git branch -d <branch-name>
+```
+
+---
+
 ## Add remote origin
 
 ```terminal
-git remote add origin <github-url>
+$ git remote add origin <github-url>
 ```
 
 ## Remove a remote origin in Git
@@ -102,8 +130,16 @@ $ git remote rm origin
 $ git remote -v
 ```
 
-## Delete branch
+---
+
+## List all commits
 
 ```terminal
-$ git branch -d <branch-name>
+$ git log
+```
+
+## Checkout specific commit
+
+```terminal
+$ git checkout <commit-id>
 ```

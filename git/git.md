@@ -20,6 +20,20 @@ $ git config --global user.name "<your-name>"
 $ git config --global user.email "<your-email>"
 ```
 
+## Delete config entry
+
+- All entries
+
+```terminal
+$ git config --global --unset-all <config-entry>
+```
+
+- Singular entry
+
+```terminal
+$ git config --global --unset <config-entry>
+```
+
 ## Git config default branch on init
 
 ```terminal

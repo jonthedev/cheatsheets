@@ -81,3 +81,9 @@ pwd
 ```terminal
 $ ls - a
 ```
+
+## Delete history of terminal commands
+
+```terminal
+$ rm ~/.bash_history && history -c
+```

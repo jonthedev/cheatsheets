@@ -1,5 +1,11 @@
 # NPM
 
+# Install npm
+
+```terminal
+$ npm install install
+```
+
 # Check globally installed packages
 
 ```terminal
@@ -17,6 +23,12 @@ $ npm list -g --depth 0
 ```terminal
 $ sudo npm uninstall -g <package-name>
 
+```
+
+# Update npm
+
+```terminal
+$ sudo npm update -g
 ```
 
 # Update all global packages

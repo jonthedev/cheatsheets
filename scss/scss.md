@@ -1,8 +1,8 @@
-# SCSS
+# SCSS.
 
 ---
 
-## Basic Setup
+## Basic Setup.
 
 1. Install sass inside root directory
 
@@ -16,7 +16,55 @@ $ npm install sass --save-dev
 $ sass --watch src/scss:dist/css
 ```
 
-## Gulp Setup
+---
+
+## Webpack Setup.
+
+**NOTE** Please refer to the CSS loader documentation after this setup.
+
+1. Install **'node-sass' 'sass-loader' 'css-loader'** in **'package.json'**
+
+```terminal
+$ npm install node-sass sass-loader css-loader -D
+```
+
+**node-sass**
+
+      - Will take care of compiling the sass code into css code.
+
+**sass-loader**
+
+        - Tells webpack where we will be loading our sass code.
+
+**css-loader**
+
+        - Tells webpack how to handle css code when it encounters it.
+
+2. Set Rules in webpack configuration
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  entry: './index.js',
+  output: {
+    filename: 'bundle.js',
+    path: __dirname + '/dist',
+  },
+  module: {
+    rules: [
+      {
+        test: /\.scss$/,
+        use: ['css-loader', 'sass-loader'],
+      },
+    ],
+  },
+};
+```
+
+---
+
+## Gulp Setup.
 
 1. Inside root of project initialise package.json
 

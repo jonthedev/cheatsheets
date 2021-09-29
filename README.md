@@ -28,7 +28,7 @@ Includes...
 - VIM
 - VSCODE
 - YARN
-- SCS
+- SCSS
 - SHOPIFY
 - TAILWIND
 - TERMINAL
@@ -36,3 +36,4 @@ Includes...
 - VIM
 - VSCODE
 - VUE
+- YARN

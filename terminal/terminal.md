@@ -64,6 +64,12 @@ $ mv <file-name> <directory>
 $ cp <file-name>
 ```
 
+## Copy current path directory
+
+```terminal
+$ pwd | pbcopy
+```
+
 ## Go back directory
 
 ```terminal

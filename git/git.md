@@ -298,3 +298,76 @@ $ git diff <branch-1> <branch-2>
 $ git diff <commit-hash-1>..<commit-hash-2>
 $ git diff <commit-hash-1> <commit-hash-2>
 ```
+
+---
+
+# STASHING
+
+**Git provides an easy way of stashing uncommitted changes so that we can return to them later, without having to make unnecessary commits.**
+
+---
+
+## Git Stash
+
+**Helps you save changes that you are not yet ready to commit. You can stash changes and then come back to them later.**
+
+**Running git stash will take all uncommitted changes (staged and unstaged) and stash them, reverting the changes in your working copy.**
+
+```terminal
+$ git stash / git stash save
+```
+
+## Git stash pop
+
+**Removes the most recently stashed changes in your stash and re-applies them to your working copy.**
+
+```terminal
+$ git stash pop
+```
+
+## Git Stash apply
+
+**Use this to apply whatever is stashed away, without removing it from the stash. This can be useful if you want to apply stashed changes to multiple branches.**
+
+```terminal
+$ git stash apply
+```
+
+## Git stash list
+
+**View everything in your stash list**
+
+```terminal
+$ git stash list
+```
+
+```md
+stash@{0}: WIP on rainbow: e34f7ca removed background color
+stash@{1}: WIP on rainbow: e34f7ca removed background color
+stash@{2}: WIP on rainbow: e34f7ca removed background color
+stash@{3}: WIP on goodbye: 8edfb56 create index.html and app.css
+```
+
+## Git stash apply stash@{id}
+
+**Apply specific stashes**
+
+```terminal
+$ git stash apply stash@{id}
+```
+
+## Git stash drop
+
+**Delete a particular stash**
+
+```terminal
+$ git stash drop stash@{id}
+```
+
+## Git stash clear
+
+**Clear the whole stash list**
+
+```terminal
+$ git stash clear
+```

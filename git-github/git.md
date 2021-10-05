@@ -84,6 +84,7 @@ $ git commit -a -m "<commit-message>"
 
 ```terminal
 $ git rm --cached <file-name>
+$ git restore --staged <file-name>
 ```
 
 ## Git Stash
@@ -176,6 +177,8 @@ $ git branch -d <branch-name>
 
 ## Fast Forward Merge
 
+You MUST be on the branch you want to merge into. For example If you are on master, and you have a branch called servant, then '**git merge servant**' will merge the servant branch into master.
+
 ```terminal
 $ git merge <branch-name>
 ```
@@ -185,8 +188,6 @@ $ git merge <branch-name>
 # REMOTE ORIGIN
 
 ---
-
-**NOTE** You MUST be on the branch you want to merge into. For example If you are on master, and you have a branch called servant, then '**git merge servant**' will merge the servant branch into master.
 
 ## Add remote origin
 
@@ -234,13 +235,80 @@ $ git log --oneline
 $ git commit --amend
 ```
 
-## Checkout specific commit
+---
+
+# GIT RESET & GIT REVERT
+
+---
+
+- **GIT RESET** actually moves the branch pointer backwards, eliminating commits.
+- **GIT REVERT** instead creates a brand new commit which reverses/undos the changes from a commit. Because it results in a new commit, you will be prompted to enter a commit message.
+
+## Git Reset (SOFT) (Undo commit)
+
+**This will remove the commits but keep the changes, if you want to loose the changes do a HARD reset**
+
+**This command is useful if you want to keep the changes and move them to another branch with switch**
+
+```terminal
+$ git reset <commit-hash>
+```
+
+## Git reset (HARD)(Undo commit & loose changes)
+
+```terminal
+$ git reset --hard <commit-hash>
+```
+
+## Git revert (Undo last commit & loose changes -> make new commit)
+
+```terminal
+$ git revert <commit-hash>
+```
+
+---
+
+# UNDOING CHANGES & TIME TRAVELLING
+
+---
+
+## Checkout specific commit (Detach Head)
 
 ```terminal
 $ git checkout <commit-id>
 ```
 
----
+**Use git switch to go to back to a specific branch, HEAD will be at the tip of that branch**
+
+## Reference commits relative to HEAD
+
+```terminal
+$ git checkout HEAD-<number-of-commits-behind-head>
+```
+
+## Go back to last branch
+
+```terminal
+$ git switch -c
+```
+
+## Discard changes (HEAD as default source)
+
+```terminal
+$ git restore <file-name>
+$ git checkout HEAD <file-name>
+$ git checkout -- <file-name>
+```
+
+## Discard changes (alternate source)
+
+**The command below means that we will unmodify changes from 1 commit behind head**
+
+**BEWARE YOU WILL LOOSE ALL YOUR CURRENT CHANGES**
+
+```terminal
+$ git restore --source HEAD~1/<commit-hash> <file-name>
+```
 
 # DIFF
 
@@ -370,4 +438,16 @@ $ git stash drop stash@{id}
 
 ```terminal
 $ git stash clear
+```
+
+---
+
+# MISC
+
+---
+
+## See what HEAD points to
+
+```terminal
+$ cat .git/HEAD
 ```

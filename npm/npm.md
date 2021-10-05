@@ -34,11 +34,23 @@ $ sudo npm update -g
 # Update all global packages
 
 ```terminal
-$ npm update -g
+$ sudo npm update -g
 ```
 
 # Update specific global package
 
 ```terminal
 $ npm update -g <package_name>
+```
+
+## Save as a dev dependency
+
+```terminal
+$ npm install -D <package-name>
+```
+
+## Save as a dependency
+
+```terminal
+$ npm install -s <package-name>
 ```

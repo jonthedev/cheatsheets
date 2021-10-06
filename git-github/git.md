@@ -58,6 +58,29 @@ $ git config --global --unset core.editor
 
 ---
 
+# FETCHING & PULLING
+
+---
+
+## Git fetch (fetch all changes / fetch specific branch changes)
+
+```terminal
+$ git fetch <remote>
+$ git fetch <remote> <branch>
+```
+
+## Git pull
+
+**Just like with git merge, it matters WHERE we run this command from. Whatever branch we run it from is where the changes will be merged into.**
+
+**'git pull origin main' would fetch the latest information from the origin's main branch and merge those changes into our current branch.**
+
+```terminal
+$ git pull <remote> <branch>
+```
+
+---
+
 # STAGING.
 
 ---
@@ -185,26 +208,46 @@ $ git merge <branch-name>
 
 ---
 
-# REMOTE ORIGIN
+# REMOTE
 
 ---
 
-## Add remote origin
+## Add new remote
 
 ```terminal
-$ git remote add origin <github-url>
+$ git remote add <name> <url>
 ```
 
-## Remove a remote origin in Git
+## Remove a remote
 
 ```terminal
 $ git remote rm origin
 ```
 
-## See current origin url
+## Rename remote
+
+```terminal
+$ git remote rename <old> <new>
+```
+
+## See current remote url
 
 ```terminal
 $ git remote -v
+```
+
+## View remote branches
+
+```terminal
+git branch -r
+```
+
+## Git clone
+
+**Retrieves all files associated with the repo and clone it to your local machine**
+
+```terminal
+$ git clone <url>
 ```
 
 ---
@@ -233,6 +276,27 @@ $ git log --oneline
 
 ```terminal
 $ git commit --amend
+```
+
+---
+
+# PUSHING
+
+---
+
+## Git push
+
+```terminal
+$ git push <orgin> <url>
+```
+
+## Git push (remote branches)
+
+\*\*In some cases you might want to push work from a local branch to a different remote. Use this command for that scenario.
+
+```terminal
+$ git push <remote> <local-branch>:<remote-branch>
+$ git push origin pancake:waffle
 ```
 
 ---

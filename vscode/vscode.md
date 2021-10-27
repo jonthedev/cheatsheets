@@ -26,10 +26,26 @@ This is the quickest way to rename a symbol without searching the files and edit
 
 - F2
 
-## Split Editor
+## Split Editor To The Right
 
 Cmd + \
 
 ## Open VS Code settings
 
 cmd + ,
+
+## Turn on tab panel.
+
+```terminal
+$ cmd + ctrl + w
+```
+
+## Show definition of file
+
+**Highlight the element/tag/component**
+
+Press f12 / cmd + mouse click
+
+## Go to line
+
+ctrl + g

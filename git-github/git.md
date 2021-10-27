@@ -79,6 +79,20 @@ $ git fetch <remote> <branch>
 $ git pull <remote> <branch>
 ```
 
+## Pull request conflicts workflow.
+
+```terminal
+$ git fetch origin/<questionable-branch>. //fetch questionable changes from remote branch
+$ git switch <questionable-branch> // switch to the branch with those changes, this will update automatically
+$ git merge <clean-branch> // merge clean branch
+
+//fix changes!
+
+$ git switch <clean-branch>
+$ git merge <questionable-branch> //now clean with no conflicts
+$ push origin <clean/branch>
+```
+
 ---
 
 # STAGING.
@@ -204,6 +218,14 @@ You MUST be on the branch you want to merge into. For example If you are on mast
 
 ```terminal
 $ git merge <branch-name>
+```
+
+If you do not want to do a fast forward merge and preserve/maintain a branch, use the following flag **'--no-ff'**.
+
+This will ensure that in the commit history there was a merge of branches\*\*
+
+```terminal
+$ git merge --no-ff <branch-name>
 ```
 
 ---

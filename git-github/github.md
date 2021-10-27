@@ -11,5 +11,14 @@ ls -al ~/.ssh
 # Add Identity without Keychain
 
 ```terminal
-$ ssh-add ~/.ssh/id_rsa
+ssh-add ~/.ssh/id_rsa
 ```
+
+# Add collobrator
+
+1. Click on the Settings tab in the right corner of the GitHub page.
+2. Manage Access option under the Settings tab. On the Manage Access page, you will see an Invite collaborator link
+3. You can Invite collaborators by any of the following options.
+   1. Username
+   2. Full Name
+   3. Email

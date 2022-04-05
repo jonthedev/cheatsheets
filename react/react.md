@@ -18,16 +18,16 @@ create-react-app myapp --use-npm
 
 ```js
 // Import the react and ReactDom libraries
-import React from "react";
-import ReactDom from "react-dom";
+import React from 'react'
+import ReactDom from 'react-dom'
 
 //Create a react component
 const App = () => {
-  return <div>Hi there!</div>;
-};
+  return <div>Hi there!</div>
+}
 
 // Take the react component and show it on the screen
-ReactDom.render(<App />, document.querySelector("#root"));
+ReactDom.render(<App />, document.querySelector('#root'))
 ```
 
 ## Passing Props
@@ -86,43 +86,43 @@ export default AnotherComponent;
 ```js
 class App extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     //set default state, ONLY TIME TO DO DIRECT ASSIGNMENT TO STATE
-    this.state = { lat: null, errorMessage: "" };
+    this.state = { lat: null, errorMessage: '' }
 
     //get position
     window.navigator.geolocation.getCurrentPosition(
       position => {
         // update state wit setState
         this.setState({
-          lat: position.coords.latitude,
-        });
+          lat: position.coords.latitude
+        })
       },
       err => {
         this.setState({
-          errorMessage: err.message,
-        });
+          errorMessage: err.message
+        })
       }
-    );
+    )
   }
 
   render() {
     //error getting geo location
     if (this.state.errorMessage && !this.state.lat) {
-      return <div>Error: {this.state.errorMessage}</div>;
+      return <div>Error: {this.state.errorMessage}</div>
     }
     //success getting geo location
     if (!this.state.errorMessage && this.state.lat) {
-      return <div>Latitude: {this.state.lat}</div>;
+      return <div>Latitude: {this.state.lat}</div>
     }
     //Loading
-    return <div>Loading...</div>;
+    return <div>Loading...</div>
   }
 }
 
-export default App;
+export default App
 
-ReactDOM.render(<App />, document.querySelector("#root"));
+ReactDOM.render(<App />, document.querySelector('#root'))
 ```
 
 ## Lifecycle Methods
@@ -155,30 +155,30 @@ In an uncontrolled component, we have to reach into the dom and the html to find
 - Input is told what it's value is (coming from state)
 
 ```js
-import React from "react";
+import React from 'react'
 
 class SearchBar extends React.Component {
-  state = { term: "" };
+  state = { term: '' }
   render() {
     return (
-      <div className="ui segment">
-        <form className="ui form">
-          <div className="field">
+      <div className='ui segment'>
+        <form className='ui form'>
+          <div className='field'>
             <label>Image Search</label>
             <input
-              className="field"
-              type="text"
+              className='field'
+              type='text'
               value={this.state.term}
               onChange={e => this.setState({ term: e.target.value })}
             />
           </div>
         </form>
       </div>
-    );
+    )
   }
 }
 
-export default SearchBar;
+export default SearchBar
 ```
 
 ## REACT REFS
@@ -191,27 +191,27 @@ export default SearchBar;
 - Allows you to return multiple elements without a parent div
 
 ```js
-import React from "react";
+import React from 'react'
 
 const Accordian = ({ items }) => {
   //render list
   const renderedList = items.map(item => {
     return (
       <React.Fragment key={item.title}>
-        <div className="title active">
-          <i className="dropdown icon"></i>
+        <div className='title active'>
+          <i className='dropdown icon'></i>
           {item.title}
         </div>
-        <div className="content active">
+        <div className='content active'>
           <p>{item.content}</p>
         </div>
       </React.Fragment>
-    );
-  });
-  return <div className="ui styled accordion">{renderedList}</div>;
-};
+    )
+  })
+  return <div className='ui styled accordion'>{renderedList}</div>
+}
 
-export default Accordian;
+export default Accordian
 ```
 
 ## React Hooks
@@ -239,18 +239,18 @@ The second argument with the **useEffect** method determines exactly when the co
 ```js
 //Empty array, Run at initial render
 useEffect(() => {
-  console.log("aafew");
-}, []);
+  console.log('aafew')
+}, [])
 
 //Nothing, Run at inital render --> Run after every rerender
 useEffect(() => {
-  console.log("aafew");
-});
+  console.log('aafew')
+})
 
 //With data/value/variable inside an array, Run at inital render --> Run after every rerender _if_ data has changed subce last render
 useEffect(() => {
-  console.log("aafew");
-}, [data]);
+  console.log('aafew')
+}, [data])
 ```
 
 **Note** - An effect function must not return anything besides a function, which is used for clean-up.
@@ -262,27 +262,33 @@ There are 3 work arounds for this
 ```js
 useEffect(() => {
   const search = async () => {
-    await axios.get("/someurl");
-  };
-}, [query]);
+    await axios.get('/someurl')
+  }
+}, [query])
 ```
 
 - Declare a helper fucntion then immediately invoke it - **same as above**
 
 ```js
 useEffect(() => {
-  (async () => {
-    await axios.get("/someurl");
-  })();
-}, [query]);
+  ;(async () => {
+    await axios.get('/someurl')
+  })()
+}, [query])
 ```
 
 - Use a promise
 
 ```js
 useEffect(() => {
-  axios.get("uewfiubfe").then(response => {
-    console.log(response.data);
-  });
-}, [query]);
+  axios.get('uewfiubfe').then(response => {
+    console.log(response.data)
+  })
+}, [query])
 ```
+
+## When to clean up your use effects
+
+- When using timer functions such as setTimeout.
+- Subscriptions.
+- Web Sockets.

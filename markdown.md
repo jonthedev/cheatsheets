@@ -1,3 +1,3 @@
 # MARKDOWN CHEAT SHEET
 
-[Markdown](https://www.markdownguide.org/cheat-sheet/)
+[Markdown](https://www.markdownguide.org/basic-syntax)

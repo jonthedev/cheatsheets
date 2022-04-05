@@ -5,7 +5,7 @@
 - Using npm
 
 ```terminal
-$ npm install axios
+$ npm i axios
 ```
 
 - Using CDN

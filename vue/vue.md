@@ -2,10 +2,28 @@
 
 ---
 
+## Install Globally
+
+```terminal
+$ npm install -g @vue/cli
+```
+
+## Uninstall
+
+```terminal
+$ npm uninstall -g @vue/cli
+```
+
 ## Set package Manager
 
 ```terminal
 $ vue create <project-name> --packageManager yarn/npm
+```
+
+## Install eslint
+
+```terminal
+$ vue add eslint
 ```
 
 ---
@@ -20,6 +38,16 @@ $ vue ui
 
 ---
 
+# VUE ROUTER 4
+
+## Install
+
+```terminal
+$ npm install vue-router@4
+```
+
+---
+
 # VUE 3
 
 ## Watch & watchEffect
@@ -30,29 +58,29 @@ The watchEffect and watch can be called during a component's setup function or i
 export default {
   name: 'Home',
   setup() {
-    const search = ref('');
+    const search = ref('')
 
     //Happens everytime the data changes
     const stopWatch = watch(search, () => {
-      console.log('watch function ran');
-    });
+      console.log('watch function ran')
+    })
 
     //Happens on initial load, 2nd argument watches for data changes like watch above.
     const stopEffect = watchEffect(() => {
-      console.log('watchEffect function ran', search.value);
-    });
+      console.log('watchEffect function ran', search.value)
+    })
 
     const matchingNames = computed(() => {
-      return names.value.filter(name => name.includes(search.value));
-    });
+      return names.value.filter(name => name.includes(search.value))
+    })
 
     const handleClick = () => {
-      stopEffect();
-      stopWatch();
-      return;
-    };
+      stopEffect()
+      stopWatch()
+      return
+    }
 
-    return { names, search, matchingNames, handleClick };
-  },
-};
+    return { names, search, matchingNames, handleClick }
+  }
+}
 ```

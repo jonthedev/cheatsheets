@@ -2,6 +2,14 @@
 
 ---
 
+## Restart vs code in folder from terminal
+
+cd into the folder/project...
+
+```terminal
+$ code -r .
+```
+
 ## Select a word and get all instances
 
 - Shift + Cmd + L
@@ -36,9 +44,7 @@ cmd + ,
 
 ## Turn on tab panel.
 
-```terminal
-$ cmd + ctrl + w
-```
+cmd + ctrl + w
 
 ## Show definition of file
 
@@ -48,4 +54,20 @@ Press f12 / cmd + mouse click
 
 ## Go to line
 
-ctrl + g
+^ + \
+
+## Code formatting
+
+cmd + k, cmd + f
+
+## Toggle Quotes (Extension)
+
+cmd + '
+
+## Highlight a whole line of text ( move cursor to the start of line)
+
+shift + dwn arrow
+
+## Switch between work spaces
+
+ctrl, +(actually press the '+' button) r

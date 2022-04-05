@@ -93,3 +93,26 @@ $ ls - a
 ```terminal
 $ rm ~/.bash_history && history -c
 ```
+
+## Search your Mac’s Terminal history.
+
+**Make sure you are inside the terminal**
+
+ctrl + r
+
+## Kill a port
+
+```terminal
+$ lsof -i:<port-number>, // this will list the ports
+
+//output
+COMMAND   PID  USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
+node    38876 MrJDK   31u  IPv4 0xbc87d9     0t0  TCP *:hbci (LISTEN)
+node    38876 MrJDK   47u  IPv4 0xbc87d9      0t0  TCP localhost:hbci->localhost:53596 (CLOSE_WAIT)
+```
+
+**use the pid number to kill the port**
+
+```terminal
+$ kill -9 38876
+```

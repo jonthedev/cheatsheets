@@ -222,7 +222,7 @@ A re-generation is initiated only if a user makes a request after the _revalidat
 
 If a user visits our product details page but there is no other user hitting that page the entire day, the re-generation does not happen.
 
-_revalidate_ does not mean the page automatically \_re-generates every 10 seconds.
+_revalidate_ does not mean the page automatically re-generates every 10 seconds.
 
 It simply denotes the time after which, if a user makes a request, a re-generation has to be initiated.
 
@@ -235,3 +235,66 @@ The re-generation can also fail and previously cached HTML could be served till 
 SSR is a form of pre-rendering where the HTML is generated at request time.
 
 SSR is required when you need to fetch data per request and also when you need to fetch personalized data keeping in mind SEO.
+
+### getServerSideProps
+
+1.  - _getServerSideProps_ runs only on the server side.
+    - The function will never run client-side.
+    - The code you write inside _getServerSideProps_ won't even be included in the JS bundle that is sent to the browser.
+
+2.  - You can write server-side code directly in the _getServerSideProps_
+    - Accessing the file system using the fs module or querying a database can be done inside _getServerSideProps_.
+    - You also don't have to worry about including API keys in _getServerSideProps_ as that won't make it to the browser.
+
+3.  - _getServerSideProps_ is allowed only in page and cannot be run from a regular component file.
+    - It is used only for pre-rendering and not client-side data fetching.
+
+4.  - _getServerSideProps_ should return an object and object should contain a props key which is an object.
+
+5.  - _getServerSideProps_ will run at request time.
+
+### Shallow Routing - routing without calling _getStaticProps/getServerSideProps_
+
+---
+
+# API ROUTES
+
+You can write the FE code in React and also write APIs that can be called by the front end code.
+
+API routes allow you to create RESTful endpoints as part of your NextJs application folder structure.
+
+Within the pages folder, you need to create a folder called 'api'.
+
+Within that 'api' folder, you can define all the APIs for your application.
+
+You can add business logic without needing to write any additional custom server code and without having to configure any API routes.
+
+NextJs gives you everything you need to write full-stack React + Node applications.
+
+The API routing mechanism is similar to page based routing mechanism.
+
+APIs are associated with a route based on their file name.
+
+Every API route exports default function typically names as a handler function.
+
+The handler function receives the _request_ and _response_ as parameters.
+
+You can cater to different requests **(CRUD)** using _req.method_
+
+**NOTE** you should NOT call our own API routes for pre-rendering content.
+
+---
+
+# STYLING
+
+**Global** - In our application, we need to import CSS file within **'pages/\_app.js'**
+
+**Component Level** - NextJs supports CSS Modules using a [name].module.css naming convention.
+
+**SASS Support** - Install the _sass_ package.
+
+**CSS-in-JS Solutions** - Inline styles and Styled Components
+
+---
+
+# MISC

@@ -8,6 +8,8 @@
 
 ```json
 {
-  "extends": ["next/babel", "next/core-web-vitals"]
+  "extends": ["next/babel"]]
 }
 ```
+
+[Source](https://namespaceit.com/blog/parsing-error-cannot-find-module-next-babel)

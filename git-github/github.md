@@ -14,6 +14,12 @@ ls -al ~/.ssh
 ssh-add ~/.ssh/id_rsa
 ```
 
+# Check known hosts
+
+```terminal
+$ ssh-keygen -l -f ~/.ssh/known_hosts
+```
+
 # Add collobrator
 
 1. Click on the Settings tab in the right corner of the GitHub page.

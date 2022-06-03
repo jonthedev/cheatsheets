@@ -70,4 +70,8 @@ shift + dwn arrow
 
 ## Switch between work spaces
 
-ctrl, +(actually press the '+' button) r
+ctrl, +(actually press the '+' button)
+
+## Open a new terminal
+
+^ + shift + `

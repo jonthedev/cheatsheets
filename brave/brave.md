@@ -8,6 +8,8 @@
 
 **Switch Windows** - cmd + `
 
+**Open new window** - cmd + n
+
 ## Page Navigation and Display.
 
 **Focus URL bar** - cmd + L

@@ -116,3 +116,9 @@ node    38876 MrJDK   47u  IPv4 0xbc87d9      0t0  TCP localhost:hbci->localhost
 ```terminal
 $ kill -9 38876
 ```
+
+## Find a file/folder
+
+```terminal
+$ open -a Finder <path-to-folder-or-file>
+```

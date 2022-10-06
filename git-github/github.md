@@ -14,6 +14,12 @@ ls -al ~/.ssh
 ssh-add ~/.ssh/id_rsa
 ```
 
+# Copy ssh key
+
+```terminal
+pbcopy < ~/.ssh/
+```
+
 # Check known hosts
 
 ```terminal

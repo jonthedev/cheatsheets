@@ -75,3 +75,7 @@ ctrl, +(actually press the '+' button)
 ## Open a new terminal
 
 ^ + shift + `
+
+## Code completion suggestions
+
+ctrl + space

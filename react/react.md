@@ -292,3 +292,74 @@ useEffect(() => {
 - When using timer functions such as setTimeout.
 - Subscriptions.
 - Web Sockets.
+
+## Hooks
+
+### useLocalStorageState
+
+**LOCAL STORAGE HOOK FOR RETRIEVING , UPDATING & SETTING DATA IN LOCAL STORAGE**
+
+**ACCESS TO PREVsTATE WITHOUT A RE RENDER**
+
+```js
+// useEffect: persistent state
+// http://localhost:3000/isolated/exercise/02.js
+
+import React from 'react'
+
+/* LOCAL STORAGE HOOK FOR RETRIEVING , UPDATING & SETTING DATA IN LOCAL STORAGE */
+const useLocalStorageState = (
+  key,
+  defaultValue = '',
+  { serialize = JSON.stringify, deserialize = JSON.parse } = {}
+) => {
+  const [state, setState] = React.useState(() => {
+    const valueInLocalStorage = window.localStorage.getItem(key)
+    if (valueInLocalStorage) {
+      return deserialize(valueInLocalStorage)
+    }
+    return typeof defaultValue === 'function'
+      ? defaultValue()
+      : defaultValue
+  })
+
+  //get prev state via REF, using this we can have access to the previous state object and do something with it, without triggering a re render
+  const prevKeyRef = React.useRef(key)
+
+  React.useEffect(() => {
+    const prevKey = prevKeyRef.current
+
+    if (prevKey !== key) {
+      window.localStorage.removeItem(prevKey)
+    }
+
+    prevKeyRef.current = key
+    window.localStorage.setItem(key, serialize(state))
+  }, [key, state, serialize])
+
+  return [state, setState]
+}
+
+function Greeting({ initialName = '' }) {
+  const [name, setName] = useLocalStorageState('name', initialName)
+  function handleChange(event) {
+    setName(event.target.value)
+  }
+
+  return (
+    <div>
+      <form>
+        <label htmlFor='name'>Name: </label>
+        <input value={name} onChange={handleChange} id='name' />
+      </form>
+      {name ? <strong>Hello {name}</strong> : 'Please type your name'}
+    </div>
+  )
+}
+
+function App() {
+  return <Greeting />
+}
+
+export default App
+```

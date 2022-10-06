@@ -1,4 +1,4 @@
-## NPM
+tsc -v## NPM
 
 ## Install npm
 

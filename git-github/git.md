@@ -120,6 +120,7 @@ $ git commit -a -m "<commit-message>"
 ## Unstage files
 
 ```terminal
+$ git reset HEAD <file-name>
 $ git rm --cached <file-name>
 $ git restore --staged <file-name>
 ```
@@ -226,6 +227,22 @@ This will ensure that in the commit history there was a merge of branches\*\*
 
 ```terminal
 $ git merge --no-ff <branch-name>
+```
+
+## Merge Rebase ( rewrites commit history while merging )
+
+Which ever branch you rebase onto, the commit history will be placed on top.
+
+if you work and commit on branch **feature/bugfix-1**, and there was work done & committed on branch **main**. Running rebase will mean that the commit history from **feature/bugfix-1** will be placed on top of **main** commit history.
+
+```terminal
+$ git rebase <file-name>
+```
+
+## Abort merge
+
+```terminal
+$ git merge --abort
 ```
 
 ---

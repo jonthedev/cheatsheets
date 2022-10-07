@@ -70,6 +70,12 @@ $ cp <file-name>
 $ pwd | pbcopy
 ```
 
+## View file in the terminal
+
+```terminal
+$ cat <file-name>
+```
+
 ## Go back directory
 
 ```terminal

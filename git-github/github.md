@@ -17,7 +17,7 @@ ssh-add ~/.ssh/id_rsa
 # Copy ssh key
 
 ```terminal
-pbcopy < ~/.ssh/
+pbcopy < ~/.ssh/id_ed25519.pub
 ```
 
 # Check known hosts

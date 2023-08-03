@@ -55,7 +55,14 @@ $ touch <file-name>
 ## Move file
 
 ```terminal
-$ mv <file-name> <directory>
+$ mv <source> <destination>
+```
+
+## Move file
+
+```terminal
+$ mv <folder>/ <destination>/
+$ mv MoveMe/ ToThisFolder/
 ```
 
 ## Copy file
@@ -88,10 +95,28 @@ $ cd ..
 pwd
 ```
 
+## Show files
+
+```terminal
+$ ls
+```
+
+## Show files in long format
+
+```terminal
+$ ls -l
+```
+
 ## Show hidden files in terminal
 
 ```terminal
-$ ls - a
+$ ls -a
+```
+
+## Show hidden files in long format
+
+```terminal
+$ ls -la
 ```
 
 ## Delete history of terminal commands
@@ -127,4 +152,66 @@ $ kill -9 38876
 
 ```terminal
 $ open -a Finder <path-to-folder-or-file>
+```
+
+## clear terminal
+
+```terminal
+$ clear
+$ ctr + l
+```
+
+## move to the beginning or line
+
+```terminal
+$ ctr + a
+```
+
+## move to the end of the line
+
+```terminal
+$ ctr + e
+```
+
+## clear text -->
+
+```terminal
+$ ctr + k
+```
+
+## clear text <--
+
+```terminal
+$ ctr + u
+```
+
+## recover deleted line
+
+```terminal
+$ ctrl + y
+```
+
+## search history
+
+```terminal
+$ ctrl + r
+```
+
+## Display first ines of a file
+
+```terminal
+$ head <count> <file>
+$ head -7 names.txt
+```
+
+## Show tree of project
+
+```terminal
+$ tree -I node_modules
+```
+
+## Show file location of terminal
+
+```terminal
+$ tty
 ```

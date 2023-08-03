@@ -17,3 +17,9 @@ $ yarn --version
 ```terminal
 $ yarn global add <package-name>
 ```
+
+## Check global package lists
+
+```terminal
+$ yarn global list
+```

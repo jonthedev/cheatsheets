@@ -22,7 +22,6 @@ $ npm list -g --depth 0
 
 ```terminal
 $ sudo npm uninstall -g <package-name>
-
 ```
 
 ## Update npm

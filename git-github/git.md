@@ -6,6 +6,12 @@
 
 ---
 
+## Edit git config file
+
+```terminal
+$ git config --global --edit
+```
+
 ## Show git config list
 
 ```terminal
@@ -221,7 +227,13 @@ You MUST be on the branch you want to merge into. For example If you are on mast
 $ git merge <branch-name>
 ```
 
+## Disable Fast Forward Merge
+
 If you do not want to do a fast forward merge and preserve/maintain a branch, use the following flag **'--no-ff'**.
+
+```terminal
+$ git merge <branch-name> --no-ff
+```
 
 This will ensure that in the commit history there was a merge of branches\*\*
 
@@ -237,6 +249,14 @@ if you work and commit on branch **feature/bugfix-1**, and there was work done &
 
 ```terminal
 $ git rebase <file-name>
+```
+
+## Rebase Pull (REMOTE)
+
+Use this when pulling changes from a remote branch if you want to preserve your work on the current branch
+
+```terminal
+$ git pull --rebase origin <branch-name>
 ```
 
 ## Abort merge
@@ -309,12 +329,19 @@ $ git log
 $ git log --oneline
 ```
 
+## Git Log git (List all commits on oneline & show graph)
+
+```terminal
+$ git log --oneline --graph
+```
+
 ## Ammend last commit (**Note**: Only works for last commit)
 
 **NOTE** - If you forget to add a file to the last commit, first stage/add that file and then run the following command.
 
 ```terminal
-$ git commit --amend
+$ git commit --amend (fix your message)
+git commit --amend --no-edit (leave your last message as it)
 ```
 
 ---
@@ -486,6 +513,15 @@ $ git diff <commit-hash-1> <commit-hash-2>
 
 ```terminal
 $ git stash / git stash save
+$ git stash save "Your message"
+```
+
+## Git Stash Untracked files
+
+**Useful if you are not sure if you want to add untracked files to the git index, this command will stash untracked files along with other work.**
+
+```terminal
+$ git stash -u
 ```
 
 ## Git stash pop
@@ -502,6 +538,12 @@ $ git stash pop
 
 ```terminal
 $ git stash apply
+```
+
+## Apply stashed files to new branch
+
+```terminal
+$ git stash branch <branch-name>
 ```
 
 ## Git stash list
@@ -541,6 +583,52 @@ $ git stash drop stash@{id}
 
 ```terminal
 $ git stash clear
+```
+
+---
+
+# TAGGING
+
+# Create simple / lightweight tag
+
+```terminal
+$ git tag <tagName>
+```
+
+# Create annotated tags
+
+```terminal
+$ git tag -a v-1.0
+```
+
+# Show tag list
+
+```terminal
+$ git tag --list
+```
+
+# delete tag
+
+```terminal
+$ git tag --delete myTag
+```
+
+# Update tag
+
+```terminal
+$ git tag -a v-0.8-alpha -f ad3fdb4
+```
+
+# Tag with specific commit
+
+```terminal
+$ git tag -a <tag-name> <commit-hash>
+```
+
+# Remove tag on remote respo
+
+```terminal
+$ git push origin :<tag-name>
 ```
 
 ---

@@ -79,3 +79,15 @@ ctrl, +(actually press the '+' button)
 ## Code completion suggestions
 
 ctrl + space
+
+## Rename variable
+
+fn + f2
+
+## Fold line
+
+opt + cmd + [
+
+## Unfold Line
+
+opt + cmd + ]

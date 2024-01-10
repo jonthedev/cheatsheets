@@ -1,4 +1,4 @@
-# Terminal Commands
+# Terman -k searchinal Commands
 
 ---
 

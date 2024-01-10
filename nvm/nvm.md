@@ -23,5 +23,7 @@ $ nvm use 6.9.1
 # Set node default
 
 ```terminal
-$ nvm alias default 14.17.0
+$ nvm alias default <version>
 ```
+
+

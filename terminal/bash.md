@@ -6,14 +6,12 @@ A cheat sheet for bash commands.
 
 ```bash
 uname -o          # Check operating system name
-which bash        # Find path to your shell
 #!                # interoperate your shell as a bash script
 #!/bin/bash       # Use the bash shell to interoperate this shell script
 !!                # Run the last command
 
 touch foo.sh
 chmod +x !$                        # !$ is the last argument of the last command i.e. foo.sh
-chmod u+x,g+w,o-r my-copy2.txt     # Change permissions all in one command.
 ```
 
 ## Navigating Directories
@@ -45,8 +43,8 @@ mkdir foo                                  # Create a directory
 mkdir foo bar                              # Create multiple directories
 mkdir -p|--parents foo/bar                 # Create nested directory
 mkdir -p|--parents {foo,bar}/baz           # Create multiple nested directories
-mkdir {jan,feb,mar}_{2017,2018,2019} # Create multiple nested directories
-mkdir {jan,feb,mar}_{2017..2022}     # Create multiple nested directories short hand
+mkdir {jan,feb,mar}_{2017,2018,2019}       # Create multiple nested directories
+mkdir {jan,feb,mar}_{2017..2022}           # Create multiple nested directories short hand
 
 mktemp -d|--directory                      # Create a temporary directory
 ```
@@ -115,7 +113,7 @@ rm -f|--force foo.txt # Delete file, ignore nonexistent files and never prompt
 rm <file-name>*       # Delete file, match file name
 rm *.txt              # Delete file, match extension
 rm *<query>*          # Delete file as long as you match the query
-rm *[query,query]*   # Delete file with options
+rm *[query,query]*    # Delete file with options
 ```
 
 ## Reading Files
@@ -164,6 +162,7 @@ chmod u-x,g-x foo.sh     # Take away the user and group execute permission
 chmod u+x,g+x,o+x foo.sh # Give everybody execute permission
 chmod a+x foo.sh         # Give everybody execute permission
 chmod +x foo.sh          # Give everybody execute permission
+chmod u+x,g+w,o-r foo.sh # Change permissions all in one command.
 ```
 
 ## Finding Files
@@ -174,6 +173,16 @@ Find binary files for a command.
 type wget                                  # Find the binary
 which wget                                 # Find the binary
 whereis wget                               # Find the binary, source, and manual page files
+```
+
+`general search`
+
+```bash
+ls -al *.???          # find everything up to 3 places after period (the number of ? represent the places)
+ls -al *.(txt|pdf)    # find with or
+ls -al *.{txt|pdf}    # find with or alternative using curly braces
+ls -al (f|m)*         # finding all files starting with f | m
+ls -l [fm]**          # finding all files starting with f | m alternative
 ```
 
 `locate` uses an index and is fast.
@@ -501,6 +510,13 @@ screen -ls       # List all sessions
 screen -R 31166  # Reattach to a session
 
 exit             # Exit a session
+```
+
+## Shell commands
+
+```bash
+which bash                # Find path to your shell
+echo $SHELL /$0           # Confirm which shell you're using
 ```
 
 ## Secure Shell Protocol (SSH)

@@ -9,7 +9,7 @@ go mod init
 ## Run file
 
 ```terminal
-go run main.go
+go run <file-name>
 ```
 
 ## Build Files

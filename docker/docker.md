@@ -33,7 +33,6 @@ If I just want to make changes on static files like html or css i don't want to 
 
 Volumes allow you to have a folder on your host machine that appears as a share folder within the container. It means I can directly interact with the files on the host system and those changes are instantly reflected in the container.
 
-
 ## get docker version
 
 ```terminal
@@ -56,10 +55,18 @@ $ docker run <image-name>/<image-tag>
 
 ## Build an image
 
-**The '.' indicates that the docker file is in the same folder we are running the command in**
+**The '.' indicates build context for the docker image**
 
 ```terminal
 $ docker build .
+```
+
+## Build an image with verbose output.
+
+**The '.' indicates build context for the docker image**
+
+```terminal
+$ docker build --no-cache --progress=plain .
 ```
 
 ## Run , publish docker containers (attached mode default)
@@ -345,10 +352,10 @@ $ docker run -d --name mongodb --network <network-name> <repo/image-id>
 **docker-compose.yaml**
 
 ```yaml
-version: '3.8'
+version: "3.8"
 services:
   mongodb:
-    image: 'mongo'
+    image: "mongo"
     volumes:
       - data:/data/db
     # environment:
@@ -360,7 +367,7 @@ services:
   backend:
     build: ./backend
     ports:
-      - '80:80'
+      - "80:80"
     volumes:
       - logs:/app/logs
       - ./backend:/app
@@ -372,7 +379,7 @@ services:
   frontend:
     build: ./frontend
     ports:
-      - '3000:3000'
+      - "3000:3000"
     volumes:
       - ./frontend/src:/app/src
     stdin_open: true

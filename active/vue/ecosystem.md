@@ -4,6 +4,15 @@ A single reference for the Vue.js ecosystem.
 
 ---
 
+## Official Docs
+
+- [Vue.js Docs](https://vuejs.org/guide/)
+- [Vue API Reference](https://vuejs.org/api/)
+- [Nuxt Docs](https://nuxt.com/docs)
+- [Pinia Docs](https://pinia.vuejs.org/core-concepts/)
+
+---
+
 ## Vue Cheat Sheets
 
 From [certificates.dev](https://certificates.dev):
@@ -112,12 +121,3 @@ From [certificates.dev](https://certificates.dev):
 |------|-------------|
 | [VueUse Motion](https://motion.vueuse.org) | Animations for Vue |
 | [@vueuse/motion](https://github.com/vueuse/motion) | Animation composables |
-
----
-
-## Official Docs
-
-- [Vue.js Docs](https://vuejs.org/guide/)
-- [Vue API Reference](https://vuejs.org/api/)
-- [Nuxt Docs](https://nuxt.com/docs)
-- [Pinia Docs](https://pinia.vuejs.org/core-concepts/)

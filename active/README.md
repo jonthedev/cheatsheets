@@ -4,7 +4,7 @@ Current production standards and reference material.
 
 ---
 
-- **vue** — Vue.js, Vuex, and related frontend patterns
+- **vue** — Ecosystem resource (cert prep, Nuxt, Pinia, VueUse, etc.); `legacy/` for Vuex and Vue 2
 - **go** — Go for services and tooling
 - **devops** — Docker, Kubernetes, kubectl, and infrastructure
 

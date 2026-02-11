@@ -1,19 +1,33 @@
 # Vue Ecosystem Resources
 
-A single reference for Vue.js certification prep and the broader Vue ecosystem.
+A single reference for the Vue.js ecosystem.
 
 ---
 
-## Certification Prep
+## Vue Cheat Sheets
 
-Official Vue.js certification materials from [certificates.dev](https://certificates.dev):
+From [certificates.dev](https://certificates.dev):
 
-- [Vue Composition API Cheatsheet: Part 1](https://certificates.dev/cheat-sheets/vue-composition-api-cheatsheet-part-1)
-- [Vue Composition API Cheatsheet: Part 2](https://certificates.dev/cheat-sheets/vue-composition-api-cheatsheet-part-2)
+- [Vue Composition API: Part 1](https://certificates.dev/cheat-sheets/vue-composition-api-cheatsheet-part-1)
+- [Vue Composition API: Part 2](https://certificates.dev/cheat-sheets/vue-composition-api-cheatsheet-part-2)
 - [Vue.js Directives Features](https://certificates.dev/cheat-sheets/vuejs-directives-features)
 - [TypeScript with Vue.js: Part 1](https://certificates.dev/cheat-sheets/typescript-with-vuejs-cheatsheet-part-1)
 - [TypeScript with Vue.js: Part 2](https://certificates.dev/cheat-sheets/typescript-with-vuejs-cheatsheet-part-2)
-- [All Cheat Sheets](https://certificates.dev/cheat-sheets)
+- [Pinia](https://certificates.dev/cheat-sheets/pinia-cheatsheet)
+- [VueUse](https://certificates.dev/cheat-sheets/vueuse-cheatsheet)
+- [All Vue Cheat Sheets](https://certificates.dev/cheat-sheets?tech=vuejs#cheat-sheets)
+
+---
+
+## Nuxt Cheat Sheets
+
+From [certificates.dev](https://certificates.dev):
+
+- [Part 1](https://certificates.dev/cheat-sheets/nuxt-cheatsheet-part-1)
+- [Part 2](https://certificates.dev/cheat-sheets/nuxt-cheatsheet-part-2)
+- [Essentials](https://certificates.dev/cheat-sheets/nuxt-essentials-cheatsheet)
+- [Server Directory](https://certificates.dev/cheat-sheets/nuxt-server-directory)
+- [All Nuxt Cheat Sheets](https://certificates.dev/cheat-sheets?tech=nuxt#cheat-sheets)
 
 ---
 

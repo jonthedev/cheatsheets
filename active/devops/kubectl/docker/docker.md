@@ -136,6 +136,18 @@ $ docker ps -a
 $ docker stop <container-id> / <container-name>
 ```
 
+## Stop all docker containers
+
+```terminal
+$ docker stop $(docker ps -a -q)
+```
+
+## Remove all docker containers
+
+```terminal
+$ docker stop $(docker ps -a -q)
+```
+
 ## Destroy docker container on exit automatically (Container must NOT be running)
 
 ```terminal

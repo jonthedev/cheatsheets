@@ -215,13 +215,13 @@ $ docker build -t <name>:<tag-name> .
 ## pushing to remote repo
 
 - Create docker repo on dockerhub
-  - **literal:yourusername/node-hello-world**
+  - **yourusername/node-hello-world**
 - create image with matching name for repo
-  - **docker tag node-demo:latest literal:yourusername/node-hello-world**
+  - **docker tag node-demo:latest yourusername/node-hello-world**
 - Run the following command in the terminal
 
   ```terminal
-  $ docker push literal:yourusername/node-hello-world
+  $ docker push yourusername/node-hello-world
   ```
 
 - Ensure you are logged in for access rights
@@ -233,7 +233,7 @@ $ docker build -t <name>:<tag-name> .
   ## pull images (fetches latest **image**)
 
   ```terminal
-  $ docker pull literal:yourusername/node-hello-world
+  $ docker pull yourusername/node-hello-world
   ```
 
   ## List docker volumes
@@ -316,7 +316,7 @@ $ docker build -t feedback-node:dev --build-arg DEFAULT_PORT=8000 .
 **run container**
 
 ```terminal
-$ docker run -d --rm -p 3000:8000 --env-file ./.env --name feedback-app -v feedback:/app/feedback -v "literal:/path/to/your/project:/app:ro" -v /app/temp -v /app/node_modules feedback-node:env
+$ docker run -d --rm -p 3000:8000 --env-file ./.env --name feedback-app -v feedback:/app/feedback -v "/path/to/your/project:/app:ro" -v /app/temp -v /app/node_modules feedback-node:env
 ```
 
 ## List docker networks

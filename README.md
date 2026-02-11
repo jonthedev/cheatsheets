@@ -1,8 +1,6 @@
 # Technical Cheatsheets
 
-A multi-year evolution of my technical standards. From jQuery and SCSS to Vue, Go, and AI platform engineering.
+Personal reference material accumulated over years of development.
 
-- **`/legacy`** — Archived references preserved for architectural context and maintaining older codebases.
-- **`/active`** — Current production standards: Vue, Go, DevOps, and AI infrastructure.
-
-Everything else lives at the root as general reference material.
+- **`/legacy`** — Archived references for maintaining older codebases and architectural context.
+- **`/active`** — Current focus: production standards and day-to-day reference material.

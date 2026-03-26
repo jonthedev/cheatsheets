@@ -42,82 +42,90 @@ From [certificates.dev](https://certificates.dev):
 
 ## Core
 
-| Tool | Description |
-|------|-------------|
-| [Vue.js](https://vuejs.org) | The progressive JavaScript framework |
-| [Vue Router](https://router.vuejs.org) | Official router for Vue |
-| [Pinia](https://pinia.vuejs.org) | Official state management (replaces Vuex) |
-| [Vite](https://vitejs.dev) | Build tool and dev server |
+| Tool                                   | Description                               |
+| -------------------------------------- | ----------------------------------------- |
+| [Vue.js](https://vuejs.org)            | The progressive JavaScript framework      |
+| [Vue Router](https://router.vuejs.org) | Official router for Vue                   |
+| [Pinia](https://pinia.vuejs.org)       | Official state management (replaces Vuex) |
+| [Vite](https://vitejs.dev)             | Build tool and dev server                 |
 
 ---
 
 ## Frameworks & Meta
 
-| Tool | Description |
-|------|-------------|
-| [Nuxt](https://nuxt.com) | Full-stack Vue framework (SSR, SSG, file-based routing) |
-| [Nuxt UI](https://ui.nuxt.com) | Fully styled Vue components for Nuxt |
-| [Quasar](https://quasar.dev) | Cross-platform Vue framework (web, mobile, desktop) |
+| Tool                           | Description                                             |
+| ------------------------------ | ------------------------------------------------------- |
+| [Nuxt](https://nuxt.com)       | Full-stack Vue framework (SSR, SSG, file-based routing) |
+| [Nuxt UI](https://ui.nuxt.com) | Fully styled Vue components for Nuxt                    |
+| [Quasar](https://quasar.dev)   | Cross-platform Vue framework (web, mobile, desktop)     |
 
 ---
 
 ## Composition & Utilities
 
-| Tool | Description |
-|------|-------------|
-| [VueUse](https://vueuse.org) | Collection of Vue composition utilities |
-| [VueUse Functions](https://vueuse.org/functions.html) | API reference |
+| Tool                                                  | Description                             |
+| ----------------------------------------------------- | --------------------------------------- |
+| [VueUse](https://vueuse.org)                          | Collection of Vue composition utilities |
+| [VueUse Functions](https://vueuse.org/functions.html) | API reference                           |
 
 ---
 
 ## UI Components & Design
 
-| Tool | Description |
-|------|-------------|
-| [Nuxt UI](https://ui.nuxt.com) | Nuxt-first component library |
-| [Radix Vue](https://www.radix-vue.com) | Unstyled, accessible primitives |
-| [Headless UI](https://headlessui.com/vue) | Unstyled, accessible components |
-| [PrimeVue](https://primevue.org) | Next-gen UI suite: 80+ components, styled/unstyled, Tailwind-ready |
-| [Vuetify](https://vuetifyjs.com) | Material Design component framework |
-| [Naive UI](https://www.naiveui.com) | Vue 3 component library |
+| Tool                                      | Description                                                        |
+| ----------------------------------------- | ------------------------------------------------------------------ |
+| [Nuxt UI](https://ui.nuxt.com)            | Nuxt-first component library                                       |
+| [Radix Vue](https://www.radix-vue.com)    | Unstyled, accessible primitives                                    |
+| [Headless UI](https://headlessui.com/vue) | Unstyled, accessible components                                    |
+| [PrimeVue](https://primevue.org)          | Next-gen UI suite: 80+ components, styled/unstyled, Tailwind-ready |
+| [Vuetify](https://vuetifyjs.com)          | Material Design component framework                                |
+| [Naive UI](https://www.naiveui.com)       | Vue 3 component library                                            |
+
+---
+
+## E-commerce
+
+| Tool                                                   | Description                                                                                          |
+| ------------------------------------------------------ | ---------------------------------------------------------------------------------------------------- |
+| [Alokai](https://alokai.com) (formerly Vue Storefront) | Headless storefront framework for composable commerce (Vue/React, SAP, Magento, commercetools, etc.) |
 
 ---
 
 ## Forms & Validation
 
-| Tool | Description |
-|------|-------------|
-| [VeeValidate](https://vee-validate.logaretm.com) | Form validation |
-| [FormKit](https://formkit.com) | Form building and validation |
-| [Vueform](https://vueform.com) | Form builder with validation |
-| [Regle](https://reglejs.dev) | Headless form validation (type-safe, model-based, Vuelidate evolution) |
+| Tool                                             | Description                                                            |
+| ------------------------------------------------ | ---------------------------------------------------------------------- |
+| [VeeValidate](https://vee-validate.logaretm.com) | Form validation                                                        |
+| [FormKit](https://formkit.com)                   | Form building and validation                                           |
+| [Vueform](https://vueform.com)                   | Form builder with validation                                           |
+| [Regle](https://reglejs.dev)                     | Headless form validation (type-safe, model-based, Vuelidate evolution) |
 
 ---
 
 ## Testing
 
-| Tool | Description |
-|------|-------------|
-| [Vitest](https://vitest.dev) | Vite-native test runner |
-| [Vue Test Utils](https://test-utils.vuejs.org) | Official Vue testing utilities |
-| [Testing Library (Vue)](https://testing-library.com/docs/vue-testing-library/intro) | User-centric testing |
+| Tool                                                                                | Description                    |
+| ----------------------------------------------------------------------------------- | ------------------------------ |
+| [Vitest](https://vitest.dev)                                                        | Vite-native test runner        |
+| [Vue Test Utils](https://test-utils.vuejs.org)                                      | Official Vue testing utilities |
+| [Testing Library (Vue)](https://testing-library.com/docs/vue-testing-library/intro) | User-centric testing           |
 
 ---
 
 ## Build & Tooling
 
-| Tool | Description |
-|------|-------------|
-| [Vite](https://vitejs.dev) | Build tool |
-| [Vue DevTools](https://devtools.vuejs.org) | Browser extension for debugging |
-| [unplugin-vue-components](https://github.com/antfu/unplugin-vue-components) | Auto-import components |
-| [unplugin-auto-import](https://github.com/antfu/unplugin-auto-import) | Auto-import APIs |
+| Tool                                                                        | Description                     |
+| --------------------------------------------------------------------------- | ------------------------------- |
+| [Vite](https://vitejs.dev)                                                  | Build tool                      |
+| [Vue DevTools](https://devtools.vuejs.org)                                  | Browser extension for debugging |
+| [unplugin-vue-components](https://github.com/antfu/unplugin-vue-components) | Auto-import components          |
+| [unplugin-auto-import](https://github.com/antfu/unplugin-auto-import)       | Auto-import APIs                |
 
 ---
 
 ## Animation & Media
 
-| Tool | Description |
-|------|-------------|
-| [VueUse Motion](https://motion.vueuse.org) | Animations for Vue |
+| Tool                                               | Description           |
+| -------------------------------------------------- | --------------------- |
+| [VueUse Motion](https://motion.vueuse.org)         | Animations for Vue    |
 | [@vueuse/motion](https://github.com/vueuse/motion) | Animation composables |

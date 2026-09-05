@@ -1,7 +1,5 @@
 # Arch Linux ARM “Manual Survivor” Cheatsheet
 
-Use this as your “map” while you go through that Vim Masterclass.
-
 ## 🛡️ The “Power” commands
 
 | Command          | What it does                                                |
@@ -28,13 +26,12 @@ Use this as your “map” while you go through that Vim Masterclass.
 | ------------- | ---------------------------------------------- |
 | `fastfetch`   | The “I Use Arch” logo and system specs         |
 | `hostnamectl` | Shows OS version, kernel, and architecture     |
+| `uname -m`    | Prints the machine hardware name (CPU arch) (e.g. `x86_64`, `aarch64`) |
 | `df -h`       | Shows how much disk space is left              |
 | `lsblk`       | Shows your drives and “rooms” (partitions)     |
 | `ip addr`     | Find your IP address (needed for SSH from Mac) |
 
 ## ✍️ Vim “emergency kit”
-
-Since you’re starting that Masterclass, keep these 4 moves in your pocket:
 
 | Key / command | What it does                                         |
 | ------------- | ---------------------------------------------------- |
@@ -44,8 +41,6 @@ Since you’re starting that Masterclass, keep these 4 moves in your pocket:
 | `:q!`         | Quit without saving (the “I messed up” panic button) |
 
 ## 🛑 Turning it off
-
-When you are done for the day, don’t just close the UTM window:
 
 1. `su -` (go to root)
 2. `poweroff` (safe shut down)

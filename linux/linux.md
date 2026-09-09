@@ -27,6 +27,47 @@ $ chsh -s <path-to-shell>
 $ chsh -s /bin/bash
 ```
 
+## Shell config
+
+Runs on every new session. Hidden file in `~` (`ls -a ~`).
+
+| Shell | File |
+| --- | --- |
+| zsh (Mac + Oh My Zsh) | `~/.zshrc` |
+| bash | `~/.bashrc` |
+
+```terminal
+$ nano ~/.zshrc
+$ vim ~/.zshrc
+```
+
+`export PATH=...` and aliases go here so they survive closing the terminal.
+
+## Persist PATH
+
+Append a **directory** (not the script file). Use an absolute path — relative PATH entries are looked up from *wherever you are now*.
+
+```terminal
+$ export PATH="$PATH:$HOME/worldbanc/private/bin"
+$ . ~/.zshrc
+$ . ~/.bashrc
+```
+
+Double quotes so `$PATH` and `$HOME` expand. `source` / `.` reloads the file without opening a new tab.
+
+## Aliases
+
+Shortcut for a command. Session only unless it’s in config.
+
+```terminal
+$ alias ll="ls -la"
+$ alias                  # all aliases
+$ alias reload           # one alias
+$ unalias ll
+```
+
+Persist: `.zshrc` / `.bashrc`, or on the Mac `$ZSH_CUSTOM/aliases.zsh` (already has `reload="source ~/.zshrc"`).
+
 ## Make nested folder structure
 
 ```terminal
@@ -38,6 +79,97 @@ $ mkdir -p <folder-name>/<folder-name>/<folder-name>
 ```terminal
 $ which <command-name>
 ```
+
+## Manual
+
+Full docs for a command. Same pager as `less`.
+
+```terminal
+$ man man
+$ man ls
+$ man grep
+```
+
+`/` search · `n` next · `N` previous · `space` page down · `q` quit. `--help` is the short version.
+
+## Symlink
+
+Another **path** to the same file. Not a copy. Target first, then the new name.
+
+```terminal
+$ ln -s target_path link_path
+$ ln -s documents/important.txt important.txt
+$ ls -l important.txt
+```
+
+Delete the link, the file stays. Delete the file, the link breaks.
+
+## Download a URL
+
+`curl` is HTTP in the terminal (`fetch` in JS). `-L` follows redirects. `-o` writes a file instead of dumping the body to the screen.
+
+```terminal
+$ curl -L <url> -o <file>
+$ curl -L https://github.com/bootdotdev/worldbanc/archive/refs/heads/main.zip -o worldbanc.zip
+```
+
+## Unzip
+
+```terminal
+$ unzip <file.zip>
+$ unzip worldbanc.zip
+```
+
+## top
+
+Live process list. Like Activity Monitor. Updates until `q`. Default sort is CPU.
+
+Mac `top` (BSD) and Ubuntu `top` (GNU) are different programs. Boot.dev’s “press `O` then `mem`” is Linux. On a Mac, capital `O` is secondary sort (`secondary key [-pid]:`).
+
+```terminal
+$ top
+$ top -o mem
+$ q
+```
+
+While `top` is running:
+
+| | Sort by memory | Sort by CPU |
+| --- | --- | --- |
+| Mac | lowercase `o`, type `mem`, Enter | `top` default, or `o` then `cpu` |
+| Ubuntu | `M` | `P` |
+
+## Interrupt (Ctrl+C)
+
+Stops a running program. Sends SIGINT. Use it when a command hangs, you typed the wrong thing, or you do not want to wait.
+
+```terminal
+$ Ctrl+C
+```
+
+`top` also quits with `q`. Ctrl+C is the general stop.
+
+## ps
+
+List running processes. First number on a line is the PID.
+
+```terminal
+$ ps aux
+$ ps aux | grep malicious.sh
+```
+
+`grep` also appears in the list. Kill the real program, not the grep line.
+
+## kill
+
+Stop a process by PID from another terminal when Ctrl+C does nothing. Default signal is SIGTERM.
+
+```terminal
+$ kill <PID>
+$ kill 93838
+```
+
+SIGINT (Ctrl+C) is polite and the program can ignore it. `kill` talks to the kernel by ID. `kill -9` is last resort (SIGKILL, cannot ignore).
 
 ---
 

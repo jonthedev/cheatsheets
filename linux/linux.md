@@ -171,6 +171,66 @@ $ kill 93838
 
 SIGINT (Ctrl+C) is polite and the program can ignore it. `kill` talks to the kernel by ID. `kill -9` is last resort (SIGKILL, cannot ignore).
 
+## Users
+
+Each account has a home (`~`) and its own files. `root` is the superuser.
+
+```terminal
+$ whoami
+$ echo $HOME
+```
+
+## sudo
+
+Run one command as root. Needs an admin password. Read it before you run it. The next prompt is still you. Never `sudo rm -rf /`.
+
+```terminal
+$ sudo <command>
+$ sudo apt update
+$ sudo whoami
+```
+
+On the studio VM, ask first.
+
+## Permissions string (`ls -l`)
+
+Ten characters. First is type (`d` directory, `-` file). Then owner / group / others, each `rwx`.
+
+```terminal
+$ ls -l
+$ ls -ld <dir>
+```
+
+`r=4` `w=2` `x=1`. `755` = `rwxr-xr-x`.
+
+On a directory: `r` = `ls`, `w` = change contents, `x` = `cd` in.
+
+## chmod
+
+Change those bits. `u` owner, `g` group, `o` others. `=` set, `+` add, `-` remove. `-R` is the whole tree.
+
+```terminal
+$ chmod u=rwx,g=,o= file
+$ chmod +x script.sh
+$ chmod -R u=rwx,g=,o= DIR
+$ chmod 770 file
+```
+
+`.` is the current directory. `+x` adds execute. `Permission denied` on `./script.sh` usually means the execute bit is off.
+
+## chown
+
+Change owner. Needs `sudo`. `-R` is the whole tree.
+
+```terminal
+$ sudo chown -R root contacts
+$ ls -l
+```
+
+`ls -l` owner is the first name after the permission string. `chmod` if you own it. `chown` if you need to change who owns it.
+
+`drwx------` + owner `root` means a normal `ls` inside fails. `sudo ls` is the one-command bypass.
+
 ---
 
 # USING REGEX PATTERNS / WILDCARDS

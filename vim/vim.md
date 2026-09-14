@@ -4,6 +4,15 @@
 
 # Open
 
+`nvim` is Neovim. Same motions as Vim for this course. `nvim --version` checks the install.
+
+```terminal
+nvim <file>
+nvim worldbanc/public/company_info.md
+```
+
+Normal mode on open. `i` insert. `Esc` back to normal. `:w` save. `:q` quit. `:wq` is save and quit. `:q!` quit without saving.
+
 ## Open file at line
 
 ```terminal

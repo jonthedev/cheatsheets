@@ -30,6 +30,15 @@ $ brew cleanup
 $ brew list
 ```
 
+## Install a package
+
+```terminal
+$ brew install <formula>
+$ brew install neovim
+```
+
+`nvim --version` checks the install. `nvim` is the binary.
+
 ## uninstall formulae
 
 ```terminal

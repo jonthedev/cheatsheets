@@ -16,4 +16,7 @@ $ sudo apt update
 $ sudo apt install <package>
 $ sudo apt install unzip
 $ sudo apt install curl
+$ sudo apt install neovim
 ```
+
+`nvim --version` checks the install. `nvim` is the binary.

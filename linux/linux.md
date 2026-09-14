@@ -76,8 +76,11 @@ $ mkdir -p <folder-name>/<folder-name>/<folder-name>
 
 ## locate command
 
+Which file on your `PATH` the shell will run. After `apt` / `brew` install, this is where the binary landed.
+
 ```terminal
 $ which <command-name>
+$ which nvim
 ```
 
 ## Manual
@@ -230,6 +233,29 @@ $ ls -l
 `ls -l` owner is the first name after the permission string. `chmod` if you own it. `chown` if you need to change who owns it.
 
 `drwx------` + owner `root` means a normal `ls` inside fails. `sudo ls` is the one-command bypass.
+
+## Package managers
+
+Install software and its dependencies. Ubuntu: [ubuntu.md](../ubuntu/ubuntu.md) (`apt`). Mac: [homebrew.md](../homebrew/homebrew.md) (`brew`).
+
+```terminal
+$ sudo apt install neovim
+$ brew install neovim
+$ nvim --version
+```
+
+`nvim` is the binary. Motions stay in [vim.md](../vim/vim.md). Open: `nvim <file>`. `i` type, `Esc` normal, `:w` save, `:q` quit.
+
+## Webi / lsd
+
+Installers from [webinstall.dev](https://webinstall.dev). No `apt` / `brew`. Trust the URL before you pipe it to `sh`.
+
+```terminal
+$ which lsd
+$ lsd --tree --classic <dir>
+```
+
+`--classic` skips Nerd Font icons.
 
 ---
 

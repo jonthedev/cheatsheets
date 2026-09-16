@@ -317,10 +317,21 @@ $ git clone <url>
 
 ## Git Log (List all commits)
 
+Each commit is a snapshot plus a unique hash. The first 7 characters of the hash are enough to refer to it.
+
+If the history is long, this opens a pager (`less`). `q` quits. `j` / `k` scroll. That is not Vim `:q`.
+
 ```terminal
 $ git log
+```
 
-//PRESS ':q' to exit
+## Git Log (limit, no pager)
+
+`-n` caps how many commits. `--no-pager` prints in the terminal instead of opening the pager (scripts / Boot.dev CLI).
+
+```terminal
+$ git log -n 10
+$ git --no-pager log -n 10
 ```
 
 ## Git Log (List all commits on oneline)

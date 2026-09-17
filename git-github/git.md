@@ -4,6 +4,10 @@
 
 # CONFIG
 
+`--global` writes `~/.gitconfig` (this machine, all repos). `--local` writes `.git/config` (this repo only). Omit `--global` and you are local.
+
+Git 2.46+ uses `git config set` / `git config list`. Older `git config --global user.name` and `git config --list` still work.
+
 ---
 
 ## Edit git config file
@@ -16,17 +20,25 @@ $ git config --global --edit
 
 ```terminal
 $ git config --list
+$ git config list --local
+$ git config list --global
 ```
 
-## Git config user name
+## Show local config file
 
 ```terminal
+$ cat .git/config
+```
+
+## Set a value
+
+Git 2.46+ `set` creates or updates. Older form still works (no `set` subcommand).
+
+```terminal
+$ git config set --global user.name "<your-name>"
+$ git config set --global user.email "<your-email>"
+$ git config set --local <section>.<key> "<value>"
 $ git config --global user.name "<your-name>"
-```
-
-## Git config user email
-
-```terminal
 $ git config --global user.email "<your-email>"
 ```
 
@@ -131,18 +143,6 @@ $ git rm --cached <file-name>
 $ git restore --staged <file-name>
 ```
 
-## Git Stash
-
-```terminal
-$ git stash
-```
-
-## Check Stashed Files
-
-```terminal
-$ git stash list
-```
-
 ---
 
 # BRANCHING
@@ -167,12 +167,6 @@ $ git branch -a
 
 ```terminal
 $ git branch -v
-```
-
-## Create new branch
-
-```terminal
-$ git branch <branch-name>
 ```
 
 ## Switch branch
@@ -202,10 +196,8 @@ $ git checkout -b <new-branch-name> origin/<remote-branch>
 ## Rename branch name / main (_You must be on the branch itself_);
 
 ```terminal
-$ git branch -m <name>/ main
+$ git branch -m <name>
 ```
-
-## rename
 
 ## Delete branch
 
@@ -229,13 +221,7 @@ $ git merge <branch-name>
 
 ## Disable Fast Forward Merge
 
-If you do not want to do a fast forward merge and preserve/maintain a branch, use the following flag **'--no-ff'**.
-
-```terminal
-$ git merge <branch-name> --no-ff
-```
-
-This will ensure that in the commit history there was a merge of branches\*\*
+If you do not want a fast-forward merge, use `--no-ff` so history keeps a merge commit.
 
 ```terminal
 $ git merge --no-ff <branch-name>
@@ -652,4 +638,13 @@ $ git push origin :<tag-name>
 
 ```terminal
 $ cat .git/HEAD
+```
+
+## Pretty-print a Git object
+
+Readable contents of a commit (or other object) from its hash. Use this instead of `cat` / `xxd` on `.git/objects`. `-p` is pretty-print. First 7 characters of the hash are enough. `git log -1` shows the latest.
+
+```terminal
+$ git cat-file -p <hash>
+$ git log -1
 ```

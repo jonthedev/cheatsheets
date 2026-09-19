@@ -36,8 +36,11 @@ $ gh config get git_protocol
 
 - Set Git protocol
 
+Default for **new** `gh clone` / `gh repo create` URLs. Does not rewrite remotes that already exist. Use this to go back to SSH after a host or lesson forced HTTPS.
+
 ```terminal
-gh config set git_protocol ssh
+$ gh config get git_protocol
+$ gh config set git_protocol ssh
 ```
 
 ---

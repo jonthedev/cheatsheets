@@ -161,6 +161,33 @@ $ git restore --staged <file-name>
 
 ---
 
+# GITIGNORE
+
+A `.gitignore` is a text file of patterns. `git add .` skips those paths. They stay on disk. Already-**tracked** files are not ignored until you remove them from the index.
+
+Put one at the repo root for repo-wide rules. A nested `.gitignore` only applies in that directory and below.
+
+Ignore generated output (`*.html` from a build), dependencies (`node_modules`, `venv`), personal editor junk, and secrets (`.env`, a `secure/` dir). Track the source, not the build.
+
+```terminal
+# comment
+*.txt
+!names.txt
+/src/main.py
+content.md
+secure/
+```
+
+`*` does not cross `/`. A leading `/` is anchored to **this** `.gitignore` file. `!` un-ignores. Last matching line wins (`temp/*` then `!temp/instructions.md`).
+
+```terminal
+$ git rm --cached <file>
+```
+
+Drops the file from the index, keeps it on disk. Then the ignore rule can apply.
+
+---
+
 # BRANCHING
 
 ---
@@ -292,11 +319,14 @@ $ git merge --abort
 
 ## Add new remote
 
-`<url>` can be HTTPS, SSH, or a path to another repo on disk.
+`<url>` can be HTTPS, SSH, or a path to another repo on disk. `gh auth` protocol does not rewrite this later.
 
 ```terminal
 $ git remote add <name> <url>
+$ git remote add origin https://github.com/<user>/<repo>.git
+$ git remote add origin git@github.com:<user>/<repo>.git
 ```
+
 
 ## Remove a remote
 
@@ -312,8 +342,19 @@ $ git remote rename <old> <new>
 
 ## See current remote url
 
+HTTPS vs SSH is this URL, not `gh`’s protocol setting.
+
 ```terminal
 $ git remote -v
+```
+
+## List remote refs (no merge)
+
+Talks to `origin` and prints hashes. A public HTTPS repo may work without login. Push still needs auth.
+
+```terminal
+$ git ls-remote
+$ git ls-remote origin
 ```
 
 ## View remote branches
@@ -328,6 +369,8 @@ git branch -r
 
 ```terminal
 $ git clone <url>
+$ git clone git@github.com:<user>/<repo>.git
+$ git clone https://github.com/<user>/<repo>.git
 ```
 
 ---

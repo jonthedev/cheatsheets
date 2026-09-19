@@ -4,9 +4,16 @@
 
 # CONFIG
 
-`--global` writes `~/.gitconfig` (this machine, all repos). `--local` writes `.git/config` (this repo only). Omit `--global` and you are local.
+Most specific wins if the same key exists in more than one file:
 
-Git 2.46+ uses `git config set` / `git config list`. Older `git config --global user.name` and `git config --list` still work.
+1. `worktree` — `.git/config.worktree` (rare)
+2. `--local` — `.git/config` (this repo). Omit `--global` and you are here
+3. `--global` — `~/.gitconfig` (this user, all repos). Username/email live here
+4. `system` — `/etc/gitconfig` (every user on the machine, rare)
+
+`--global` is the usual one. `--local` for repo-only. You will almost never touch system or worktree.
+
+Git 2.46+ uses `git config set` / `git config get` / `git config list` / `git config unset`. Older `git config --global user.name` and `git config --list` still work.
 
 ---
 
@@ -32,28 +39,37 @@ $ cat .git/config
 
 ## Set a value
 
-Git 2.46+ `set` creates or updates. Older form still works (no `set` subcommand).
+Git 2.46+ `set` creates or updates. `--append` adds another value on the **same** key (Git allows duplicate keys; a Python dict would not). Older form still works (no `set` subcommand).
 
 ```terminal
 $ git config set --global user.name "<your-name>"
 $ git config set --global user.email "<your-email>"
 $ git config set --local <section>.<key> "<value>"
+$ git config set --append --local <section>.<key> "<value>"
 $ git config --global user.name "<your-name>"
 $ git config --global user.email "<your-email>"
 ```
 
-## Delete config entry
+## Get a single value
 
-- All entries
+`section.key`. Add `--local` or `--global` if the same key exists in both.
 
 ```terminal
-$ git config --global --unset-all <config-entry>
+$ git config get user.name
+$ git config get --local <section>.<key>
 ```
 
-- Singular entry
+## Delete a value or section
+
+`unset` removes **one** instance of `section.key`. `unset --all` removes every instance of that key. Neither deletes the whole `[section]` — that is `remove-section`. Built-in sections like `core` stay.
 
 ```terminal
-$ git config --global --unset <config-entry>
+$ git config unset --local <section>.<key>
+$ git config unset --all --local <section>.<key>
+$ git config --global --unset <section>.<key>
+$ git config --global --unset-all <section>.<key>
+$ git config remove-section --local <section>
+$ git config --remove-section --local <section>
 ```
 
 ## Git config default branch on init
@@ -62,16 +78,14 @@ $ git config --global --unset <config-entry>
 $ git config --global init.defaultBranch <name>
 ```
 
-## Set VS Code as default editor
+## Git commit / merge editor
+
+Terminal Git (merge message, rebase -i, commit without `-m`) uses `core.editor`. Neovim blocks until `:wq`, so no `--wait`. VS Code needs `--wait` or Git continues before you save.
 
 ```terminal
-$ git config --global core.editor "code --wait"
-```
-
-## Revert Back To GNU nano (or default)
-
-```terminal
-$ git config --global --unset core.editor
+$ git config set --global core.editor nvim
+$ git config set --global core.editor "code --wait"
+$ git config unset --global core.editor
 ```
 
 ---
@@ -81,6 +95,8 @@ $ git config --global --unset core.editor
 ---
 
 ## Git fetch (fetch all changes / fetch specific branch changes)
+
+Downloads objects and remote-tracking refs (`origin/<branch>`). Does not move your current branch or change files in the working tree.
 
 ```terminal
 $ git fetch <remote>
@@ -177,8 +193,11 @@ $ git switch <branch-name>
 
 ## Create Branch + Switch branch
 
+Start point is current `HEAD` unless you pass a commit (or other ref).
+
 ```terminal
 $ git switch -c <branch-name>
+$ git switch -c <branch-name> <commit-hash>
 ```
 
 ## Create branch + checkout (_OLD_)
@@ -193,10 +212,13 @@ $ git checkout -b <new-branch-name>
 $ git checkout -b <new-branch-name> origin/<remote-branch>
 ```
 
-## Rename branch name / main (_You must be on the branch itself_);
+## Rename a branch
+
+On the branch: `-m` and the new name. From anywhere: old name then new name.
 
 ```terminal
-$ git branch -m <name>
+$ git branch -m <new-name>
+$ git branch -m <old-name> <new-name>
 ```
 
 ## Delete branch
@@ -227,14 +249,25 @@ If you do not want a fast-forward merge, use `--no-ff` so history keeps a merge 
 $ git merge --no-ff <branch-name>
 ```
 
-## Merge Rebase ( rewrites commit history while merging )
+## Merge a remote-tracking branch
 
-Which ever branch you rebase onto, the commit history will be placed on top.
-
-if you work and commit on branch **feature/bugfix-1**, and there was work done & committed on branch **main**. Running rebase will mean that the commit history from **feature/bugfix-1** will be placed on top of **main** commit history.
+Same merge, other side is `origin/<branch>` instead of a local name. Be on the branch you want to update.
 
 ```terminal
-$ git rebase <file-name>
+$ git merge origin/<branch>
+```
+
+## Rebase (replay commits onto another branch)
+
+`onto` is the **floor**: that branch does not move. You must be on the branch whose commits you want replayed. They are copied with **new hashes** on top of the floor.
+
+While on `feature/bugfix-1`: `git rebase main` puts that branch's unique commits on top of `main`. `main` stays still.
+
+Do **not** rebase a public/shared branch (like `main`) onto something else. Rebase **your** private branch onto `main`.
+
+```terminal
+$ git rebase <branch>
+$ git rebase main
 ```
 
 ## Rebase Pull (REMOTE)
@@ -258,6 +291,8 @@ $ git merge --abort
 ---
 
 ## Add new remote
+
+`<url>` can be HTTPS, SSH, or a path to another repo on disk.
 
 ```terminal
 $ git remote add <name> <url>
@@ -322,14 +357,32 @@ $ git --no-pager log -n 10
 
 ## Git Log (List all commits on oneline)
 
+`origin/<branch>` is a remote-tracking ref (last fetch). It does not check those files out.
+
 ```terminal
 $ git log --oneline
+$ git log --oneline --decorate=full
+$ git log --oneline origin/<branch>
 ```
 
-## Git Log git (List all commits on oneline & show graph)
+## Git Log (oneline and graph)
+
+`--all` includes every branch, not only the one you are on. `--parents` prints each commit’s parent hashes (a merge commit has two).
 
 ```terminal
 $ git log --oneline --graph
+$ git log --oneline --graph --all
+$ git log --oneline --graph --parents
+$ git log --oneline --decorate --graph --parents
+```
+
+## Git Log (decorate)
+
+A ref is a pointer to a commit. Branches are refs. `--decorate` is on by default (`short`). `full` shows `refs/heads/<branch>`. `no` hides names.
+
+```terminal
+$ git log --decorate=full
+$ git log --decorate=no
 ```
 
 ## Ammend last commit (**Note**: Only works for last commit)
@@ -371,17 +424,26 @@ $ git push origin pancake:waffle
 - **GIT RESET** actually moves the branch pointer backwards, eliminating commits.
 - **GIT REVERT** instead creates a brand new commit which reverses/undos the changes from a commit. Because it results in a new commit, you will be prompted to enter a commit message.
 
-## Git Reset (SOFT) (Undo commit)
+## Git Reset (SOFT) (Undo commit, keep staged)
 
-**This will remove the commits but keep the changes, if you want to loose the changes do a HARD reset**
+Moves the branch pointer. Staging and files on disk stay as they were. Same as: you made the edits, `git add`, never committed.
 
-**This command is useful if you want to keep the changes and move them to another branch with switch**
+```terminal
+$ git reset --soft <commit-hash>
+```
+
+## Git Reset (MIXED, default) (Undo commit, unstage, keep files)
+
+Moves the branch pointer and resets the index. Files on disk keep the changes, unstaged. `git reset <commit-hash>` with no flag is mixed.
 
 ```terminal
 $ git reset <commit-hash>
+$ git reset --mixed <commit-hash>
 ```
 
-## Git reset (HARD)(Undo commit & loose changes)
+## Git reset (HARD) (Undo commit and discard changes)
+
+Branch, staging, and files on disk all match that commit. Uncommitted work after that point is gone. Do not use on commits other people already pulled.
 
 ```terminal
 $ git reset --hard <commit-hash>
